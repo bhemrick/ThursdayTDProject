@@ -15,7 +15,7 @@ public class Entity {
 		
 	}
 	
-	public void removeEntity(){
+	public void remove(){
 		
 	}
 	
