@@ -7,7 +7,7 @@
 7/17/2013	
 
 Entry #1
-	New: 	README.TXT
+	New: 	README.txt
 		.gitignore
 		td\Game.java
 		td\entity\Entity.java

@@ -69,7 +69,7 @@ public class Game extends JPanel implements Runnable {
 		
 		JFrame frame = new JFrame(Game.NAME);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
+		//frame.setLayout(new BorderLayout());
 		frame.add(game, BorderLayout.CENTER);
 		frame.setSize(WIDTH, HEIGHT);
 		//frame.pack();
