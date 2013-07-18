@@ -38,11 +38,11 @@ public class Map {
 				
 	}
 	
-	public int getMapHeight() {
+	public int getHeight() {
 		return mapHeight;
 	}
 	
-	public int getMapWidth() {
+	public int getWidth() {
 		return mapWidth;
 	}
 	
@@ -77,7 +77,7 @@ public class Map {
 	
 	public void changeTile(String img, int ID){
 		// use black magic to find the location in the grid
-		mapGrid	[(int)(Math.ceil(ID/mapWidth))]
+		mapGrid	[(int)(Math.floor(ID/mapWidth))]
 				[(ID % mapWidth)] 
 			    = new Tile(img, ID);
 		hasChanged = true;
