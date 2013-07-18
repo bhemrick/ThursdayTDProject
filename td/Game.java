@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import td.map.Map;
+
 public class Game extends JPanel implements Runnable {
 
 	/**
@@ -23,6 +25,7 @@ public class Game extends JPanel implements Runnable {
 		double nsPerTick = 1000000000.0 / 60;
 		int ticks = 0;
 		int frames = 0;
+		init();
 		long lastTimer1 = System.currentTimeMillis();
 		
 		while(true) {
@@ -62,6 +65,10 @@ public class Game extends JPanel implements Runnable {
 	}
 	
 	private void render() {
+	}
+	
+	private void init() {
+		Map testMap = new Map(10, 10);
 	}
 
 	public static void main(String[] args) {
