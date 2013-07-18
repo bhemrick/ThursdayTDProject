@@ -31,7 +31,7 @@ public class Game extends Canvas implements Runnable {
 	private void init() {
 		
 		
-		Map testMap = new Map(10, 10);
+		//Map testMap = new Map(10, 10);
 	}
 		
 	@Override
@@ -81,7 +81,7 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	private void render() {
-		testMap.render();
+		//testMap.render();
 	}
 	
 

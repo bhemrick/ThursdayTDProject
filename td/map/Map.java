@@ -13,8 +13,6 @@ package td.map;
 
 import java.awt.Image;
 
-
-
 public class Map {
 	private boolean hasChanged;
 	private int mapWidth, mapHeight;
@@ -28,10 +26,11 @@ public class Map {
 		for (int i = 0; i < width; i++) {
 			for (int k = 0; k < height; k++)	 {
 				mapGrid[i][k] = new Tile(
-						"../artAssets/mapTile_Grid.png", 
+						"mapTile_Grid.png", 
 						TileID++);
 			}
 		}
+		hasChanged = true;
 		createBufferedImage();
 				
 	}
@@ -51,9 +50,7 @@ public class Map {
 	public void render() {
 		if(hasChanged) {
 			createBufferedImage();
-		} else {
-			
-		}
+		} 
 	}
 	
 	private void createBufferedImage() {
