@@ -1,19 +1,16 @@
 package td.map;
 
+import graphics.Sprite;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
-
 public class Tile {
-	Image tileIMG;
-	private int tileID, xWidth, yHeight;
+	private Sprite sprite;
+	private int tileID, w, h;
 	
 	public Tile(String img, int ID) {
-		tileID = ID;
-		ImageIcon ii = new ImageIcon(this.getClass().getResource(img));
-		tileIMG = ii.getImage();
-		xWidth = tileIMG.getWidth(null);
-		yHeight = tileIMG.getHeight(null);
+		sprite = new Sprite(img);
+		w = sprite.getWidth();
+		h = sprite.getHeight();
 	}
 	
 	public int getTileID() {
@@ -21,11 +18,15 @@ public class Tile {
 	}
 	
 	public int getTileHeight() {
-		return yHeight;
+		return h;
 	}
 	
 	public int getTileWidth() {
-		return xWidth;
+		return w;
+	}
+	
+	public Image getTileImage() {
+		return sprite.getSprite();
 	}
 	
 }

@@ -1,12 +1,13 @@
 package td;
 
 import java.awt.BorderLayout;
+import java.awt.Canvas;
+
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import td.map.Map;
 
-public class Game extends JPanel implements Runnable {
+public class Game extends Canvas implements Runnable {
 
 	/**
 	 * 
@@ -14,10 +15,17 @@ public class Game extends JPanel implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
 	private static final String NAME = "TD - Thursday Build";
-	public static final int HEIGHT = 720; // 120
-	public static final int WIDTH = 1280; // 160
-		
+	public static final int HEIGHT = 720;
+	public static final int WIDTH = 1280;
 	
+	private Map testMap;
+	
+	private void init() {
+		
+		
+		Map testMap = new Map(10, 10);
+	}
+		
 	@Override
 	public void run() {
 		long lastTime = System.nanoTime();
@@ -65,11 +73,9 @@ public class Game extends JPanel implements Runnable {
 	}
 	
 	private void render() {
+		testMap.render();
 	}
 	
-	private void init() {
-		Map testMap = new Map(10, 10);
-	}
 
 	public static void main(String[] args) {
 		Game game = new Game();
@@ -78,8 +84,8 @@ public class Game extends JPanel implements Runnable {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.setLayout(new BorderLayout());
 		frame.add(game, BorderLayout.CENTER);
-		frame.setSize(WIDTH, HEIGHT);
-		//frame.pack();
+		//frame.setSize(WIDTH, HEIGHT);
+		frame.pack();
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
