@@ -8,7 +8,7 @@
  */
 package td.map;
 
-import graphics.Sprite;
+import td.graphics.Sprite;
 import java.awt.Image;
 
 public class Tile {
