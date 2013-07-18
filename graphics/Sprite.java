@@ -1,3 +1,14 @@
+/* 
+ * File Name: Tile.java
+ * Contributors:	Jonathan Bradley 	- 7/18/2013
+ * 					Ryan Meier			- 
+ * 					Ben Emrick			-
+ * 
+ * Purpose: This class creates a new sprite
+ * 
+ * Future Goals: Create spritesheet class to reduce number of image files
+ * 		and re-work class to incorporate this
+ */
 package graphics;
 
 import java.awt.Image;
@@ -29,7 +40,7 @@ public class Sprite {
 		return spriteWidth;
 	}
 	
-	public Image getSprite() {
+	public Image getImage() {
 		return spriteIMG;
 	}
 }

@@ -1,3 +1,11 @@
+/*
+ * File Name: Game.java
+ * Contributors:	Jonathan Bradley - 7/17/2013
+ * 					Ryan Meier
+ * 					Ben Emrick
+ * 
+ * Purpose: This file handles all of the main parts of the game
+ */
 package td;
 
 import java.awt.BorderLayout;

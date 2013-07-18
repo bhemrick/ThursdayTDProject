@@ -1,3 +1,14 @@
+/* 
+ * File Name: Map.java
+ * Contributors:	Jonathan Bradley 	- 7/18/2013
+ * 					Ryan Meier			- 
+ * 					Ben Emrick			-
+ * 
+ * Purpose: This class creates a map grid to keep track of each game tile
+ * 
+ * Future Goals: change constructor to read-in a text file for different
+ * 		levels once we have the different types of tiles developed
+ */
 package td.map;
 
 import java.awt.Graphics;
