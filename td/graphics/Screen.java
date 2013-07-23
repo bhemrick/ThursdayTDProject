@@ -10,4 +10,17 @@ package td.graphics;
 
 public class Screen {
 
+	private int w, h;
+	private int[] pixels;
+	
+	public Screen(int w, int h) {
+		this.w = w;
+		this.h = h;
+		pixels = new int[w*h];
+	}
+	
+	public void render() {
+		
+	}
+
 }

@@ -13,26 +13,25 @@ import java.awt.Image;
 
 public class Tile {
 	private Sprite sprite;
-	private final int tileID, w, h;
+	private final int tileID;
+//	private final int w, h;
 	
 	public Tile(String img, int ID) {
 		this.tileID = ID;
-		sprite = new Sprite(img);
-		this.w = sprite.getWidth();
-		this.h = sprite.getHeight();
+		sprite = new Sprite(img, 51, 51);
 	}
 	
 	public int getID() {
 		return tileID;
 	}
 	
-	public int getHeight() {
-		return h;
-	}
-	
-	public int getWidth() {
-		return w;
-	}
+//	public int getHeight() {
+//		return h;
+//	}
+//	
+//	public int getWidth() {
+//		return w;
+//	}
 	
 	public Image getImage() {
 		return sprite.getImage();

@@ -14,6 +14,7 @@ import java.awt.Canvas;
 import javax.swing.JFrame;
 
 import td.map.Map;
+import td.graphics.Screen;
 
 public class Game extends Canvas implements Runnable {
 
@@ -27,11 +28,12 @@ public class Game extends Canvas implements Runnable {
 	public static final int WIDTH = 1280;
 	
 	private Map testMap;
+	private Screen screen;
 	
 	private void init() {
 		
 		
-		//Map testMap = new Map(10, 10);
+		Map testMap = new Map(10, 10);
 	}
 		
 	@Override

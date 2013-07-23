@@ -11,13 +11,10 @@
  */
 package td.map;
 
-import java.awt.Image;
-
 public class Map {
-	private boolean hasChanged;
+	//private boolean hasChanged;
 	private int mapWidth, mapHeight;
 	private Tile mapGrid[][];
-	private Image map;
 	private int TileID;
 	
 	public Map(int width, int height) {
@@ -26,13 +23,17 @@ public class Map {
 		for (int i = 0; i < width; i++) {
 			for (int k = 0; k < height; k++)	 {
 				mapGrid[i][k] = new Tile(
-						"mapTile_Grid.png", 
+						"artAssets/mapTile_Grid.png", 
 						TileID++);
 			}
 		}
-		hasChanged = true;
-		createBufferedImage();
+		//hasChanged = true;
 				
+	}
+	
+	public Map(Map m) {
+		this.mapGrid = m.getMap();
+//		hasChanged = true;
 	}
 	
 	public int getHeight() {
@@ -47,34 +48,24 @@ public class Map {
 		
 	}
 	
-	public void render() {
-		if(hasChanged) {
-			createBufferedImage();
-		} 
+//	public boolean hasChanged() {
+//		return hasChanged;
+//	}
+	
+	public Tile[][] getMap() {
+		return mapGrid;
 	}
 	
-	private void createBufferedImage() {
-//		Graphics g;
-//		Graphics2D g2d = (Graphics2D)g;
-//		Tile tempTile;
-//		for (int i = 0; i <= mapHeight; i++){
-//			for (int k = 0; i<= mapWidth; i++){
-//				tempTile = mapGrid[i][k];
-//				g2d.drawImage(tempTile.getTileImage(),
-//						k * tempTile.getTileWidth(),
-//						i * tempTile.getTileHeight(),
-//						null);
-//			}
-//		}
-		
-		hasChanged = false;
-	}
+//	public Tile[][] getNewMap() {
+//		hasChanged = false;
+//		return mapGrid;
+//	}
 	
 	public void changeTile(String img, int ID){
 		// use black magic to find the location in the grid
 		mapGrid	[(int)(Math.floor(ID/mapWidth))]
 				[(ID % mapWidth)] 
 			    = new Tile(img, ID);
-		hasChanged = true;
+//		hasChanged = true;
 	}
 }
