@@ -19,7 +19,25 @@ public class Screen {
 		pixels = new int[w*h];
 	}
 	
-	public void render() {
+	public int getWidth() {
+		return w;
+	}
+	
+	public int getHeight() {
+		return h;
+	}
+	
+	public int getPixels(int x) {
+		return pixels[x];
+	}
+	
+	public void render(int xa, int ya, int xb, int yb) {
+//		for (int y = 0; y < yb; y++) {
+//			for (int x = 0; x < xb; x++) {
+//				int col = fuckit;
+//			}
+//		}
+		
 		
 	}
 

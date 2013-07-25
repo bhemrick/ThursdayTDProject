@@ -22,28 +22,38 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Sprite {
-	BufferedImage spriteIMG;
-	String resourceLocation;
-	int spriteWidth, spriteHeight, x, y;
+	private BufferedImage spriteIMG;
+	private String resourceLocation;
+	private int spriteWidth, spriteHeight, x, y;
 	
-	public Sprite(String imgString, int w, int h) {
+	public Sprite(String imgString) {
 		this.resourceLocation = imgString;
-		File file = new File(resourceLocation);
-		FileInputStream fis;
+		// Commented this out because I was an idiot and 
+		//  couldn't get it to work, and then I got it to 
+		//  work in a much easier way
+//		File file = new File(resourceLocation);
+//		FileInputStream fis;
+//		try {
+//			fis = new FileInputStream(file);
+//			try {
+//				this.spriteIMG = ImageIO.read(fis);
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		try {
-			fis = new FileInputStream(file);
-			try {
-				this.spriteIMG = ImageIO.read(fis);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (FileNotFoundException e) {
+			spriteIMG = ImageIO.read(new File(resourceLocation));
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		this.spriteWidth = w;
-		this.spriteHeight = h;
+		
+		this.spriteWidth = spriteIMG.getWidth();
+		this.spriteHeight = spriteIMG.getHeight();
 	}
 	
 	public int getHeight() {

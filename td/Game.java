@@ -10,6 +10,10 @@ package td;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
@@ -27,11 +31,13 @@ public class Game extends Canvas implements Runnable {
 	public static final int HEIGHT = 720;
 	public static final int WIDTH = 1280;
 	
+	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+	
 	private Map testMap;
 	private Screen screen;
 	
 	private void init() {
-		
 		
 		Map testMap = new Map(10, 10);
 	}
@@ -83,7 +89,28 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	private void render() {
-		//testMap.render();
+//		BufferStrategy bs = getBufferStrategy();
+//		if (bs == null) {
+//			createBufferStrategy(3)	;
+//			return;
+//		}
+//		
+//		testMap.render(screen);
+//		
+//		for (int y = 0; y < screen.getHeight(); y++) {
+//			for (int x = 0; x < screen.getWidth(); x++) {
+//				pixels[x + y * WIDTH] = screen.getPixels(x + y * screen.getWidth());
+//			}
+//		}
+//		
+//		Graphics g = bs.getDrawGraphics();
+//		g.fillRect(0, 0, getWidth(), getHeight());
+//		
+//		g.drawImage(image, (getWidth() * -1), (getHeight() * -1), WIDTH, HEIGHT, null);
+//		g.dispose();
+//		bs.show();
+		
+		
 	}
 	
 
