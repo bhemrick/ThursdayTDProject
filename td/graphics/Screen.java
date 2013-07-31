@@ -22,12 +22,9 @@ import td.map.Tile;
 public class Screen extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private int w, h;
 	private Game game;
 	
-	public Screen(int w, int h, Game gme) {
-		this.w = w;
-		this.h = h;
+	public Screen(Game gme) {
 		this.game = gme;
 		setFocusable(true);
 		setBackground(Color.BLACK);
@@ -45,6 +42,7 @@ public class Screen extends JPanel {
 						    this);
 			}
 		}
+		
 	}
 	
 	public void renderTowers(Graphics2D g2d) {
@@ -62,16 +60,20 @@ public class Screen extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.setColor(Color.BLACK);
+		g2d.fillRect(0, 0, game.map.getWidthPixels(), game.map.getHeightPixels());
 		
-		renderMap(g2d);
-		renderTowers(g2d);
-		renderMobs(g2d);
+		if (game.inGame) {
+			renderMap(g2d);
+			renderTowers(g2d);
+			renderMobs(g2d);
+		}
 		
 		Toolkit.getDefaultToolkit().sync();
 	    g2d.dispose();
-		
+	    
 	}
 	
 	public void render() {

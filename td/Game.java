@@ -24,11 +24,12 @@ public class Game implements Runnable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public JFrame frame;
+	//public JFrame frame;
 	private static final String NAME = "TD - Thursday Build";
 	public static final int HEIGHT = 720;
 	public static final int WIDTH = 1280;
 	
+	public Boolean inGame;
 	public Map map;
 	public Screen screen;
 	
@@ -41,7 +42,8 @@ public class Game implements Runnable {
 	
 	private void init() {
 		map = new Map(30, 30);
-		screen = new Screen(WIDTH, HEIGHT, this);
+		screen = new Screen(this);
+		inGame = true;
 	}
 	
 	private void tick() {
@@ -62,7 +64,7 @@ public class Game implements Runnable {
 		//init();
 		long lastTimer1 = System.currentTimeMillis();
 
-		while(true) {
+		while(inGame) {
 			long now = System.nanoTime();
 			unprocessed += (now - lastTime) / nsPerTick;
 			lastTime = now;
