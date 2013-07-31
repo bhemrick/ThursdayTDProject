@@ -8,7 +8,6 @@
  */
 package td.map;
 
-import td.graphics.Screen;
 import td.graphics.Sprite;
 import java.awt.Image;
 
@@ -20,6 +19,8 @@ public class Tile {
 	public Tile(String img, int ID) {
 		this.tileID = ID;
 		sprite = new Sprite(img);
+		w = sprite.getWidth();
+		h = sprite.getHeight();
 	}
 	
 	public int getID() {
@@ -38,9 +39,7 @@ public class Tile {
 		return sprite.getImage();
 	}
 	
-	public void render(Screen screen, int x, int y) {
-//		screen.render(x, y, w, h);
-		
+	public void render() {
 		
 	}
 	

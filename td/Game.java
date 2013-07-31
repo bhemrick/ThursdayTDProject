@@ -9,37 +9,55 @@
 package td;
 
 import java.awt.BorderLayout;
-import java.awt.Canvas;
-import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
+import java.util.ArrayList;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 import td.map.Map;
 import td.graphics.Screen;
 
-public class Game extends Canvas implements Runnable {
+public class Game implements Runnable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	public JFrame frame;
 	private static final String NAME = "TD - Thursday Build";
 	public static final int HEIGHT = 720;
 	public static final int WIDTH = 1280;
+//	private Thread thread;
 	
-	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+//	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+//	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
-	private Map testMap;
-	private Screen screen;
+	public Map map;
+	public Screen screen;
+	
+	public ArrayList Mobs;
+	public ArrayList Towers;
+	
+	public Game() {
+		init();
+	}
 	
 	private void init() {
+		map = new Map(30, 30);
+		screen = new Screen(WIDTH, HEIGHT, this);
+//		if (thread == null) {
+//			thread = new Thread(this);
+//			thread.start();
+//		}
+	}
+	
+	private void tick() {
 		
-		Map testMap = new Map(10, 10);
+	}
+	
+	public void render() {
+		screen.render();
 	}
 		
 	@Override
@@ -49,9 +67,9 @@ public class Game extends Canvas implements Runnable {
 		double nsPerTick = 1000000000.0 / 60;
 		int ticks = 0;
 		int frames = 0;
-		init();
+		//init();
 		long lastTimer1 = System.currentTimeMillis();
-		
+
 		while(true) {
 			long now = System.nanoTime();
 			unprocessed += (now - lastTime) / nsPerTick;
@@ -82,52 +100,23 @@ public class Game extends Canvas implements Runnable {
 				ticks = 0;
 			}
 		}
-	}
-	
-	private void tick() {
-		
-	}
-	
-	private void render() {
-//		BufferStrategy bs = getBufferStrategy();
-//		if (bs == null) {
-//			createBufferStrategy(3)	;
-//			return;
-//		}
-//		
-//		testMap.render(screen);
-//		
-//		for (int y = 0; y < screen.getHeight(); y++) {
-//			for (int x = 0; x < screen.getWidth(); x++) {
-//				pixels[x + y * WIDTH] = screen.getPixels(x + y * screen.getWidth());
-//			}
-//		}
-//		
-//		Graphics g = bs.getDrawGraphics();
-//		g.fillRect(0, 0, getWidth(), getHeight());
-//		
-//		g.drawImage(image, (getWidth() * -1), (getHeight() * -1), WIDTH, HEIGHT, null);
-//		g.dispose();
-//		bs.show();
-		
-		
-	}
-	
+	}	
 
 	public static void main(String[] args) {
 		Game game = new Game();
 		
 		JFrame frame = new JFrame(Game.NAME);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.setLayout(new BorderLayout());
-		frame.add(game, BorderLayout.CENTER);
-		//frame.setSize(WIDTH, HEIGHT);
-		frame.pack();
+		frame.setLayout(new BorderLayout());
+		frame.add(game.screen, BorderLayout.CENTER); //frame.add(new Game(), BorderLayout.CENTER);  //frame.add(game, BorderLayout.CENTER);
+		//frame.getContentPane().add(game.screen);
+		frame.setSize(game.map.getWidthPixels(), game.map.getWidthPixels());
+		//frame.pack();
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
-		game.run();
+		//game.run();
 	}
 
 }

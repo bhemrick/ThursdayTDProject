@@ -11,12 +11,8 @@
  */
 package td.graphics;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -24,7 +20,7 @@ import javax.imageio.ImageIO;
 public class Sprite {
 	private BufferedImage spriteIMG;
 	private String resourceLocation;
-	private int spriteWidth, spriteHeight, x, y;
+	private int spriteWidth, spriteHeight;
 	
 	public Sprite(String imgString) {
 		this.resourceLocation = imgString;
@@ -52,8 +48,8 @@ public class Sprite {
 			e.printStackTrace();
 		}
 		
-		this.spriteWidth = spriteIMG.getWidth();
-		this.spriteHeight = spriteIMG.getHeight();
+		spriteWidth = spriteIMG.getWidth();
+		spriteHeight = spriteIMG.getHeight();
 	}
 	
 	public int getHeight() {

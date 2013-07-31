@@ -11,24 +11,28 @@
  */
 package td.map;
 
-import td.graphics.Screen;
-
 public class Map {
 	//private boolean hasChanged;
 	private int mapWidth, mapHeight;
-	private Tile mapGrid[][];
+	private Tile[][] mapGrid;
 	private int TileID;
+	private int mapWidthPixels, mapHeightPixels;
 	
 	public Map(int width, int height) {
-		Tile mapGrid[][] = new Tile[height][width];
+		this.mapGrid = new Tile[height][width];
 		TileID = 0;
+		mapWidth = width;
+		mapHeight = height;
 		for (int i = 0; i < height; i++) {
 			for (int k = 0; k < width; k++)	 {
-				mapGrid[i][k] = new Tile(
-						"artAssets/mapTile_Grid.png", 
+				this.mapGrid[i][k] = new Tile(
+						"artAssets/grass.png", 
 						TileID++);
 			}
 		}
+		
+		mapWidthPixels = mapGrid[0][0].getWidth() * mapWidth;
+		mapHeightPixels = mapGrid[0][0].getHeight() * mapHeight;
 		//hasChanged = true;
 				
 	}
@@ -46,17 +50,19 @@ public class Map {
 		return mapWidth;
 	}
 	
+	public int getHeightPixels() {
+		return mapHeightPixels;
+	}
+	
+	public int getWidthPixels() {
+		return mapWidthPixels;
+	}
+	
 	public void tick() {
 		
 	}
 	
-	public void render(Screen screen) {
-//		for (int i = 0; i < mapHeight; i++) {
-//			for (int k = 0; k < mapWidth; k++)	 {
-//				mapGrid[i][k].render(screen, i, k);
-//			}
-//		}
-		
+	public void render() {
 		
 	}
 	
@@ -64,13 +70,25 @@ public class Map {
 //		return hasChanged;
 //	}
 	
-//	public Tile[][] getMap() {
-//		return mapGrid;
-//	}
+	public Tile[][] getMap() {
+		return mapGrid;
+	}
 	
 //	public Tile[][] getNewMap() {
 //		hasChanged = false;
 //		return mapGrid;
+//	}
+	
+	public Tile getTile(int x, int y) {
+		return mapGrid[x][y];
+	}
+	
+//	public int getTileX(int x, int y) {
+//		return 
+//	}
+//	
+//	public int getTileY(int x, int y) {
+//		
 //	}
 	
 	public void changeTile(String img, int ID){
