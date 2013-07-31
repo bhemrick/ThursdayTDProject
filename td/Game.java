@@ -28,10 +28,6 @@ public class Game implements Runnable {
 	private static final String NAME = "TD - Thursday Build";
 	public static final int HEIGHT = 720;
 	public static final int WIDTH = 1280;
-//	private Thread thread;
-	
-//	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-//	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
 	public Map map;
 	public Screen screen;
@@ -46,10 +42,6 @@ public class Game implements Runnable {
 	private void init() {
 		map = new Map(30, 30);
 		screen = new Screen(WIDTH, HEIGHT, this);
-//		if (thread == null) {
-//			thread = new Thread(this);
-//			thread.start();
-//		}
 	}
 	
 	private void tick() {
@@ -108,15 +100,13 @@ public class Game implements Runnable {
 		JFrame frame = new JFrame(Game.NAME);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
-		frame.add(game.screen, BorderLayout.CENTER); //frame.add(new Game(), BorderLayout.CENTER);  //frame.add(game, BorderLayout.CENTER);
-		//frame.getContentPane().add(game.screen);
+		frame.add(game.screen, BorderLayout.CENTER);
 		frame.setSize(game.map.getWidthPixels(), game.map.getWidthPixels());
 		//frame.pack();
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
-		//game.run();
 	}
 
 }

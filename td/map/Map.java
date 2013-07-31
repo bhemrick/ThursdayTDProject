@@ -12,7 +12,6 @@
 package td.map;
 
 public class Map {
-	//private boolean hasChanged;
 	private int mapWidth, mapHeight;
 	private Tile[][] mapGrid;
 	private int TileID;
@@ -30,17 +29,9 @@ public class Map {
 						TileID++);
 			}
 		}
-		
 		mapWidthPixels = mapGrid[0][0].getWidth() * mapWidth;
 		mapHeightPixels = mapGrid[0][0].getHeight() * mapHeight;
-		//hasChanged = true;
-				
 	}
-	
-//	public Map(Map m) {
-//		this.mapGrid = m.getMap();
-////		hasChanged = true;
-//	}
 	
 	public int getHeight() {
 		return mapHeight;
@@ -62,40 +53,18 @@ public class Map {
 		
 	}
 	
-	public void render() {
-		
-	}
-	
-//	public boolean hasChanged() {
-//		return hasChanged;
-//	}
-	
 	public Tile[][] getMap() {
 		return mapGrid;
 	}
 	
-//	public Tile[][] getNewMap() {
-//		hasChanged = false;
-//		return mapGrid;
-//	}
-	
 	public Tile getTile(int x, int y) {
 		return mapGrid[x][y];
 	}
-	
-//	public int getTileX(int x, int y) {
-//		return 
-//	}
-//	
-//	public int getTileY(int x, int y) {
-//		
-//	}
 	
 	public void changeTile(String img, int ID){
 		// use black magic to find the location in the grid
 		mapGrid	[(int)(Math.floor(ID/mapWidth))]
 				[(ID % mapWidth)] 
 			    = new Tile(img, ID);
-//		hasChanged = true;
 	}
 }

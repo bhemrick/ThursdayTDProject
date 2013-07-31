@@ -24,27 +24,10 @@ public class Sprite {
 	
 	public Sprite(String imgString) {
 		this.resourceLocation = imgString;
-		// Commented this out because I was an idiot and 
-		//  couldn't get it to work, and then I got it to 
-		//  work in a much easier way
-//		File file = new File(resourceLocation);
-//		FileInputStream fis;
-//		try {
-//			fis = new FileInputStream(file);
-//			try {
-//				this.spriteIMG = ImageIO.read(fis);
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		try {
 			spriteIMG = ImageIO.read(new File(resourceLocation));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Failed to open file");
 			e.printStackTrace();
 		}
 		
