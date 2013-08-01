@@ -9,10 +9,27 @@
 package td.entity;
 
 public class Entity {
-	private int x, y;
+	public int x, xb;
+	public int y, yb;
+	private boolean isVisible, isAlive;
+	public enum attackType {
+		FIRE, ICE, LIGHTNING, EARTH
+	}
 	
-	public void init() {
-		
+	public Entity() {
+		isAlive = true;
+	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
+	}
+	
+	public Boolean isVisible() {
+		return isVisible;
 	}
 	
 	public void move() {
@@ -24,10 +41,11 @@ public class Entity {
 	}
 	
 	public void render() {
-		
 	}
 	
 	public void remove(){
+		isVisible = false;
+		isAlive = false;
 		
 	}
 }

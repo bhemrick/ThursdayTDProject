@@ -18,16 +18,11 @@ import td.graphics.Screen;
 
 public class Game implements Runnable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
 	private static final String NAME = "TD - Thursday Build";
 	public static final int HEIGHT = 720;
 	public static final int WIDTH = 1280;
 	
-	public Boolean inGame;
+	public Boolean inGame = false;
 	public Map map;
 	public Screen screen;
 	
@@ -35,13 +30,13 @@ public class Game implements Runnable {
 	public ArrayList Towers;
 	
 	public Game() {
+		inGame = false;
 		init();
 	}
 	
 	private void init() {
 		map = new Map(30, 30);
 		screen = new Screen(this);
-		inGame = true;
 	}
 	
 	private void tick() {
@@ -61,9 +56,8 @@ public class Game implements Runnable {
 		double nsPerTick = 1000000000.0 / 60;
 		int ticks = 0;
 		int frames = 0;
-		//init();
 		long lastTimer1 = System.currentTimeMillis();
-
+		inGame = true;
 		while(inGame) {
 			long now = System.nanoTime();
 			unprocessed += (now - lastTime) / nsPerTick;
@@ -84,7 +78,7 @@ public class Game implements Runnable {
 
 			if (shouldRender) {
 				frames++;
-				render();
+				//render();
 			}
 
 			if (System.currentTimeMillis() - lastTimer1 > 1000) {
@@ -102,11 +96,11 @@ public class Game implements Runnable {
 		JFrame frame = new JFrame(Game.NAME);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
-		frame.add(game.screen, BorderLayout.CENTER);
 		frame.setSize(game.map.getWidthPixels(), game.map.getWidthPixels());
 		//frame.pack();
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
+		frame.add(game.screen, BorderLayout.CENTER);
 		frame.setVisible(true);
 		
 		game.run();

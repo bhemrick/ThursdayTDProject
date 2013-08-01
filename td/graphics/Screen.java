@@ -11,6 +11,7 @@ package td.graphics;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
@@ -40,10 +41,12 @@ public class Screen extends JPanel {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D)g;
 		
-		g2d.drawImage(game.map.getMapImage(), null, 0, 0);
+		if (game.inGame == true) {
+			g2d.drawImage(game.map.getMapImage(), null, 0, 0);
+		}
 		
-		//Toolkit.getDefaultToolkit().sync();
-	    //g2d.dispose();
+		Toolkit.getDefaultToolkit().sync();
+	    g2d.dispose();
 	    
 	}
 	
