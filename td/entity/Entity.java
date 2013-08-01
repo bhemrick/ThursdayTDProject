@@ -11,6 +11,14 @@ package td.entity;
 public class Entity {
 	private int x, y;
 	
+	public void init() {
+		
+	}
+	
+	public void move() {
+		
+	}
+	
 	public void tick() {
 		
 	}
@@ -19,15 +27,7 @@ public class Entity {
 		
 	}
 	
-	public void init() {
-		
-	}
-	
 	public void remove(){
-		
-	}
-	
-	public void move() {
 		
 	}
 }

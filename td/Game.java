@@ -11,7 +11,6 @@ package td;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 import td.map.Map;
@@ -24,7 +23,6 @@ public class Game implements Runnable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	//public JFrame frame;
 	private static final String NAME = "TD - Thursday Build";
 	public static final int HEIGHT = 720;
 	public static final int WIDTH = 1280;
@@ -51,6 +49,8 @@ public class Game implements Runnable {
 	}
 	
 	public void render() {
+		map.render();
+		
 		screen.render();
 	}
 		
@@ -108,6 +108,8 @@ public class Game implements Runnable {
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		
+		game.run();
 		
 	}
 

@@ -9,70 +9,41 @@
 package td.graphics;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
 import td.Game;
-import td.map.Tile;
 
 public class Screen extends JPanel {
 
-	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6468166128684414161L;
 	private Game game;
 	
 	public Screen(Game gme) {
-		this.game = gme;
+		game = gme;
 		setFocusable(true);
 		setBackground(Color.BLACK);
 		setDoubleBuffered(true);
-		setPreferredSize(new Dimension(game.map.getWidth(), game.map.getHeight()));
-	}
-	
-	public void renderMap(Graphics2D g2d) {
-		for (int i = 0; i < game.map.getHeight(); i++) {
-			for (int k = 0; k < game.map.getWidth(); k++) {
-				Tile temp = game.map.getTile(i, k);
-				g2d.drawImage(temp.getImage(), 
-						    i * temp.getWidth(), 
-						    k * temp.getHeight(), 
-						    this);
-			}
-		}
-		
-	}
-	
-	public void renderTowers(Graphics2D g2d) {
-		
-	}
-	
-	public void renderMobs(Graphics2D g2d) {
-		
+		//setPreferredSize(new Dimension(game.map.getWidth(), game.map.getHeight()));
 	}
 	
 	public void addNotify() {
 		super.addNotify();
 	}
 	
-	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
 		Graphics2D g2d = (Graphics2D)g;
-		g2d.setColor(Color.BLACK);
-		g2d.fillRect(0, 0, game.map.getWidthPixels(), game.map.getHeightPixels());
 		
-		if (game.inGame) {
-			renderMap(g2d);
-			renderTowers(g2d);
-			renderMobs(g2d);
-		}
+		g2d.drawImage(game.map.getMapImage(), null, 0, 0);
 		
-		Toolkit.getDefaultToolkit().sync();
-	    g2d.dispose();
+		//Toolkit.getDefaultToolkit().sync();
+	    //g2d.dispose();
 	    
 	}
 	
