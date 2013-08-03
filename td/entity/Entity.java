@@ -9,8 +9,8 @@
 package td.entity;
 
 public class Entity {
-	public int x, xb;
-	public int y, yb;
+	public int x, xb;				// X is the top left of the sprite
+	public int y, yb;				// xb is the bottom right of the sprite
 	private boolean isVisible, isAlive;
 	public enum attackType {
 		FIRE, ICE, LIGHTNING, EARTH
